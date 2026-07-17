@@ -1,9 +1,9 @@
 <h1 align="center">30-Day CTF Writeup Challenge</h1>
 
-<h3 align="center">Expanded into a 32-day CTF writeup series</h3>
+<h3 align="center">A beginner-friendly CTF learning series across crypto, OSINT, forensics, privesc, web, pwn, and reversing</h3>
 
 <p align="center">
-  A public record of my 30 days CTF learning sprint, later expanded into 32 days to finish the final reverse engineering section properly.
+  A public record of my CTF learning sprint, built to improve my problem-solving, document my reasoning, and explore different cybersecurity challenge categories.
 </p>
 
 <p align="center">
@@ -17,13 +17,23 @@
 
 ## Overview
 
-This repository started as my 30-day CTF writeup challenge. The original goal was simple: solve and document one challenge each day for 30 days to build consistency and public technical evidence.
+This repository started as my 30-day CTF writeup challenge. I wanted to get better at CTFs by solving challenges consistently, learning different categories, and documenting the reasoning behind each solve instead of only saving the final flag.
 
-I later expanded it from 30 days to 32 days because the final reverse engineering section felt incomplete if I stopped exactly at Day 30. Instead of ending the series at an arbitrary number, I added two more reversing writeups so the challenge ended with a cleaner progression through GDB, packed binaries, and runtime flag reconstruction.
+Over time, the challenge became more than a daily streak. It turned into a public learning record of how I approached problems, made mistakes, used tools, got stuck, and slowly improved across different areas of cybersecurity.
 
-So the project is still kept under the 30-day CTF writeup idea because that is how the challenge started, and because many people search for 30 days CTF writeup, 30 day CTF challenge, or 30 days cybersecurity challenge. The final version is a 32-day series.
+The final series includes 32 writeups, with the extra entries added to finish the reverse engineering section properly and make the ending feel complete.
 
 The writeups are written for beginners who want to follow the reasoning, not only copy the final answer. Each completed entry focuses on the path from first clue to final flag, including mistakes, tool usage, and the lesson from the challenge.
+
+I especially enjoyed the OSINT, web exploitation, and privilege escalation challenges, and this series helped me discover which areas of cybersecurity I naturally enjoy digging into.
+
+## Medium Writeups
+
+I publish my full CTF writeups on Medium:
+
+[medium.com/@siyam.exe](https://medium.com/@siyam.exe)
+
+The articles are written as beginner-friendly walkthroughs, focusing on the reasoning process, tool usage, mistakes, and lessons from each challenge.
 
 ## Current Status
 

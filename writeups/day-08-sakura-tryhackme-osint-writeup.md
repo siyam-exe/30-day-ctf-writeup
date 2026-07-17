@@ -1,6 +1,8 @@
+# Day 8: Sakura TryHackMe OSINT Writeup
+
 A simple Sakura writeup where one reused username turns into email, crypto, WiFi, and a flight trail.
 
-![[Pasted image 20260606183910.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-001.png)
 
 Today’s challenge is Sakura from TryHackMe, and this is also the start of the OSINT part of my CTF writeup series.
 
@@ -61,7 +63,7 @@ It was in the URL.
 
 The image was hosted inside a public GitHub repository, and the repository path exposed the username connected to the attacker. 
 
-![[Pasted image 20260604145426.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-002.png)
 
 That gave the first answer.
 ### Flag
@@ -90,7 +92,7 @@ I started by searching the username through WhatsMyName.
 
 WhatsMyName is useful in OSINT because it checks whether a username exists across many platforms. Instead of manually typing the same username into ten different websites like a tired raccoon, it does the boring part for you.
 
-![[Pasted image 20260604152349.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-003.png)
 
 
 The search revealed a GitHub account connected to the attacker. 
@@ -103,7 +105,7 @@ This GitHub account had something even better.
 
 A PGP public key.
 
-![[Pasted image 20260604162159.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-004.png)
 
 ### The PGP Key
 
@@ -120,7 +122,7 @@ So I was not “decrypting” anything here. I was inspecting the public key and
 Once I decoded or inspected the key, the email address appeared.
 
 
-![[Pasted image 20260604162424.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-005.png)
 
 ### Flag 1
 
@@ -138,7 +140,7 @@ Next, I searched the attacker’s username on Google.
 
 The result led to an X/Twitter account.
 
-![[Pasted image 20260606181531.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-006.png)
 
 The username did not perfectly match the original GitHub username, so at first I was not fully convinced. It felt slightly weird compared to other OSINT challenges where usernames usually line up cleanly.
 
@@ -148,7 +150,7 @@ Sometimes you follow the suspicious result because it smells connected enough.
 
 So I went "Trust the process" mode and I checked it anyway.
 
-![[Pasted image 20260604164249.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-007.png)
 
 That turned out to be the right call.
 
@@ -198,11 +200,11 @@ One was related to ETH.
 
 The other one was related to Bitcoin.
 
-![[Pasted image 20260604165338.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-008.png)
 
 I started with the ETH repository because the challenge question mentioned a cryptocurrency wallet, and ETH looked like the cleaner lead.
 
-![[Pasted image 20260605151434.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-009.png)
 
 Inside the repository, there was only one line visible.
 
@@ -210,13 +212,13 @@ That felt too empty.
 
 The challenge background also said the attacker had started deleting information. So the obvious next move was to check the commit history.
 
-![[Pasted image 20260605152034.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-010.png)
 
 There were only two commits.
 
 So I opened the oldest one.
 
-![[Pasted image 20260605152209.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-011.png)
 
 And there it was.
 
@@ -266,13 +268,13 @@ Very advanced. Very elite. Definitely hacker movie material... :3
 
 That search led me to Etherscan.
 
-![[Pasted image 20260605153027.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-012.png)
 
 Etherscan is a block explorer for Ethereum. In simple words, it lets you search Ethereum addresses and see public transaction history connected to them.
 
 I pasted the wallet address into Etherscan and found the transaction list.
 
-![[Pasted image 20260605155835.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-013.png)
 
 There were 42 transactions.
 
@@ -320,7 +322,7 @@ Because apparently getting caught once was not enough. They wanted to add social
 
 The screenshot showed a message sent by the attacker.
 
-![[Pasted image 20260605160543.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-014.png)
 
 The questions were:
 
@@ -334,7 +336,7 @@ From the screenshot, the Twitter handle was already visible.
 
 We are going to pretend I had not already run into it earlier during reconnaissance, because challenge flow deserves some drama.
 
-![[Pasted image 20260605162645.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-015.png)
 
 A quick search with the handle confirmed the account and its updated identity.
 
@@ -356,7 +358,7 @@ The attacker posted access point (AP) information and included a hint:
 DEEP PASTE'd
 ```
 
-![[Pasted image 20260605163004.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-016.png)
 
 At first, I tried to follow the DeepPaste trail directly.
 
@@ -364,9 +366,9 @@ That became annoying fast.
 
 The original DeepPaste onion route seemed outdated, and older v2 onion links are generally dead now because Tor moved away from them. I also found posts confirming that many of those old links no longer work.
 
-![[Pasted image 20260605173758.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-017.png)
 
-![[Pasted image 20260605173859.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-018.png)
 
 So the original path was messy.
 
@@ -374,7 +376,7 @@ Luckily, this challenge has a public screenshot containing the needed DeepPaste 
 
 [https://raw.githubusercontent.com/OsintDojo/public/main/deeppaste.png](https://raw.githubusercontent.com/OsintDojo/public/main/deeppaste.png)
 
-![[Pasted image 20260605195046.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-019.png)
 
 The screenshot listed multiple WiFi names, SSIDs, and passwords.
 
@@ -406,7 +408,7 @@ I used advanced search (You do need to open an account but if you're someone who
 DK1F-G
 ```
 
-![[Pasted image 20260605200658.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-020.png)
 
 The result gave the BSSID for the attacker’s home WiFi.
 
@@ -444,13 +446,13 @@ What city does the attacker likely consider “home”?
 
 The attacker posted a photo before getting on their flight.
 
-![[Pasted image 20260605201247.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-021.png)
 
 At first, I considered doing a reverse image search.
 
 Then I noticed the tall white monument in the image.
 
-![[Esh-uTvUcAc-sXC.jpg]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-022.jpg)
 
 That is the Washington Monument in Washington, D.C. (It seems I have some GK in me after all)
 
@@ -476,11 +478,11 @@ Sometimes a giant monument stands in the middle of the image screaming the answe
 
 The next photo showed the attacker’s layover.
 
-![[Pasted image 20260605202956.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-023.png)
 
 The important clue here was the Sakura Lounge.
 
-![[Pasted image 20260605211845.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-024.png)
 
 Searching the image and matching the lounge location pointed to Tokyo International Airport, also known as Haneda Airport.
 
@@ -502,7 +504,7 @@ This clue was cleaner than the DeepPaste part. The Sakura Lounge detail made the
 
 The attacker also shared a map image during the final flight home.
 
-![[Pasted image 20260605212014.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-025.png)
 
 This one was more straightforward.
 
@@ -532,7 +534,7 @@ This answer came from connecting earlier evidence.
 
 In the DeepPaste screenshot, one of the WiFi entries was labeled as the attacker’s home WiFi. When I searched the SSID through WiGLE, the location pointed to Hirosaki.
 
-![[Pasted image 20260605214718.png]]
+![Screenshot](../assets/day-08-sakura-tryhackme-osint-writeup/image-026.png)
 
 So the attacker’s likely home city was:
 
@@ -611,3 +613,4 @@ If you reuse usernames, leave keys lying around, delete things only after commit
 You did not leave breadcrumbs.
 
 You left a full buffet.
+
